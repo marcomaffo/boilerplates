@@ -1,0 +1,36 @@
+{
+  "name": "wellbe-sever",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc-watch --onSuccess \"node --enable-source-maps lib/index.js\"",
+    "debug": "tsc-watch --onSuccess \"node --enable-source-maps --inspect=0.0.0.0:56745 lib/index.js\"",
+    "publish": "export dirname='build-'$(date +\"%d%m%y-%H%M\") && tsc --build tsconfig.prod.json && mv libProd $dirname",
+    "migrate": "knex migrate:latest && knex seed:run",
+    "rollback": "knex migrate:rollback",
+    "migration": "knex migrate:make"
+  },
+  "author": "Marco Boldt",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "knex": "^0.95.13",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "multiparty": "^4.2.2",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-session": "^5.10.4",
+    "@types/multiparty": "0.0.33",
+    "@types/node": "^16.11.6",
+    "tsc-watch": "^4.5.0",
+    "typescript": "^4.4.4"
+  }
+}
