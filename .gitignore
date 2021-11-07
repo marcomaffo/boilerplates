@@ -1,4 +1,6 @@
 frontend/lib
 backend/lib
+backend/config.js
+backend/knexfile.js
 node_modules
 package-lock.json
